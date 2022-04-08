@@ -8,8 +8,8 @@ import { currency } from "../../../utils";
 const Map = () => {
   const dispatch = useDispatch();
 
-  useEffect(async () => {
-    await dispatch(fetchCountryCases());
+  useEffect(() => {
+    dispatch(fetchCountryCases());
   }, []);
 
   const { data, loading, error } = useSelector((state) => ({
@@ -32,8 +32,8 @@ const Map = () => {
           {data &&
             data?.map((country) => (
               <Marker
-                position={[country.countryInfo.lat, country.countryInfo.long]}
-                key={country.country}
+                position={[country?.countryInfo.lat, country?.countryInfo.long]}
+                key={country?.country}
               >
                 <Popup maxWidth={200} maxHeight={"auto"}>
                   <div>
