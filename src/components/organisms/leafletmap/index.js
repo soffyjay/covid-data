@@ -8,8 +8,8 @@ import { currency } from "../../../utils";
 const Map = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchCountryCases());
+  useEffect(async () => {
+    await dispatch(fetchCountryCases());
   }, []);
 
   const { data, loading, error } = useSelector((state) => ({
