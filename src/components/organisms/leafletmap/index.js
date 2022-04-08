@@ -29,7 +29,7 @@ const Map = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {data &&
-          data.map((country) => (
+          data?.map((country) => (
             <Marker
               position={[country.countryInfo.lat, country.countryInfo.long]}
               key={country.country}
