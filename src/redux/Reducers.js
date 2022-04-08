@@ -14,7 +14,7 @@ import { combineReducers } from "redux";
 const initialState = {
   loading: false,
   error: "",
-  data: null,
+  data: [],
 };
 //All reducers
 export const allDataReducer = (state = initialState, action) => {
