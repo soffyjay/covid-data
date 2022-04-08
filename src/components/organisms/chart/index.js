@@ -15,7 +15,8 @@ const Chart = () => {
 
   //this function helps us derive the date from th data so we can use on the graph.
   const getGraphDates = () => {
-    const newDates = data && Object.keys(data.cases);
+    const newDates =
+      data !== null && Object.keys(data).length > 0 && Object.keys(data.cases);
     setGraphDates(newDates);
   };
 
