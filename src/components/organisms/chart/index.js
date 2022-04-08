@@ -122,7 +122,7 @@ const Chart = () => {
     }
   };
 
-  if (data) {
+  if (data !== null && !loading) {
     return (
       <div className="chart-container">
         <div className="line-chart-graph">
