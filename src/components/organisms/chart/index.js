@@ -28,7 +28,9 @@ const Chart = () => {
 
   useEffect(async () => {
     await dispatch(fetchGraphCases());
-    getAllData();
+    if (data !== null) {
+      getAllData();
+    }
   }, []);
 
   //this function helps us update our state for the datasets on the chart.
@@ -42,8 +44,7 @@ const Chart = () => {
   //this function creates an array of data from our api response.
   const getChartValues = (data) => {
     let chartValues = [];
-    data &&
-      Object.keys(data).length > 0 &&
+    data !== null &&
       Object.keys(data).map((option) => {
         chartValues.push(data[option]);
       });
@@ -52,71 +53,73 @@ const Chart = () => {
 
   //this function renders our chart data
   const renderChart = () => {
-    const data = {
-      labels: graphDates,
-      datasets: [
-        {
-          label: "Cases",
-          lineTension: 0.1,
-          borderColor: "#00FF07",
-          backgroundColor: "#c3ecc3",
-          data: graphCases,
-          pointStyle: "circle",
-        },
-
-        {
-          label: "Recovered",
-          lineTension: 0.1,
-          data: recoveryCases,
-          pointStyle: "circle",
-          backgroundColor: "#b980e2",
-          borderColor: "#6a0dad",
-        },
-        {
-          label: "Deaths",
-          lineTension: 0.1,
-          borderColor: "#FF0005",
-          data: deathCases,
-          pointStyle: "circle",
-          backgroundColor: "rgb(255, 99, 0)",
-        },
-      ],
-    };
-    const options = {
-      pointStyle: "circle",
-      legend: { display: true },
-      tooltips: {
-        usePointStyle: true,
-        callbacks: {
-          title: function (labels) {
-            return "";
-          },
-          label: (labels) => {
-            return currency(labels.value);
-          },
-        },
-      },
-      scales: {
-        xAxes: [
+    if (data !== null && !loading) {
+      const data = {
+        labels: graphDates,
+        datasets: [
           {
-            gridLines: { display: false },
+            label: "Cases",
+            lineTension: 0.1,
+            borderColor: "#00FF07",
+            backgroundColor: "#c3ecc3",
+            data: graphCases,
+            pointStyle: "circle",
+          },
+
+          {
+            label: "Recovered",
+            lineTension: 0.1,
+            data: recoveryCases,
+            pointStyle: "circle",
+            backgroundColor: "#b980e2",
+            borderColor: "#6a0dad",
+          },
+          {
+            label: "Deaths",
+            lineTension: 0.1,
+            borderColor: "#FF0005",
+            data: deathCases,
+            pointStyle: "circle",
+            backgroundColor: "rgb(255, 99, 0)",
           },
         ],
-        yAxes: [
-          {
-            gridLines: { display: true },
-            ticks: {
-              beginAtZero: true,
-
-              callback: (label) => {
-                return currency(label);
-              },
+      };
+      const options = {
+        pointStyle: "circle",
+        legend: { display: true },
+        tooltips: {
+          usePointStyle: true,
+          callbacks: {
+            title: function (labels) {
+              return "";
+            },
+            label: (labels) => {
+              return currency(labels.value);
             },
           },
-        ],
-      },
-    };
-    return <Line data={data} options={options} />;
+        },
+        scales: {
+          xAxes: [
+            {
+              gridLines: { display: false },
+            },
+          ],
+          yAxes: [
+            {
+              gridLines: { display: true },
+              ticks: {
+                beginAtZero: true,
+
+                callback: (label) => {
+                  return currency(label);
+                },
+              },
+            },
+          ],
+        },
+      };
+      return <Line data={data} options={options} />;
+    }
   };
 
   if (data) {
