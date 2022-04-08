@@ -1,0 +1,24 @@
+.leaflet-container {
+  width: 90%;
+  height: 500px;
+  margin: auto;
+}
+.flag {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+}
+.country-info {
+  font-weight: 600;
+}
+/* .leaflet-popup {
+  width: 100px;
+  height: auto;
+} */
+.country-image {
+  width: 100%;
+}
+.map-title {
+  text-align: center;
+  padding: 20px 0;
+}

@@ -1,0 +1,27 @@
+.left-box {
+  border: 1px solid #ecebf5;
+  border-radius: 8px;
+  width: 221px;
+  margin: 19px 20px 0px 0px;
+  line-height: 20px;
+}
+.right-header {
+  font-size: 18px;
+  font-weight: 700;
+  padding-top: 12px;
+}
+.email {
+  font-size: 14px;
+  color: #696d8c;
+  padding-bottom: 11px;
+  display: inline-block;
+}
+.right-header,
+.email {
+  padding-left: 27px;
+}
+@media (max-width: 500px) {
+  .left-box {
+    width: 221px !important;
+  }
+}

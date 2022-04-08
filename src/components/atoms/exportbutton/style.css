@@ -1,0 +1,22 @@
+.export-button {
+  background: #25bb87;
+  border-radius: 8px;
+  width: 105px;
+  padding: 10px 29.5px;
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+}
+@media (max-width: 950px) {
+  .export-button {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (max-width: 950px) {
+  .export-button {
+    height: 36px;
+  }
+}

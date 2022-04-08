@@ -1,0 +1,18 @@
+.filter-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e1e1eb;
+  border-radius: 8px;
+  justify-content: space-evenly;
+  width: 160px;
+  height: 44px;
+  color: #060213;
+  font-weight: 600;
+  cursor: pointer;
+}
+@media (max-width: 950px) {
+  .filter-box {
+    width: 130px;
+    height: 36px;
+  }
+}

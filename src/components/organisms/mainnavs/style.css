@@ -1,0 +1,48 @@
+.main-nav-container {
+  border-bottom: 1px solid #ecebf5;
+}
+
+.main-nav-link {
+  padding: 16px 0;
+  display: inline-block;
+}
+.main-nav-link a {
+  text-decoration: none;
+  color: #696d8c;
+  padding-left: 40px;
+}
+.main-nav-link a:hover {
+  color: #6837ef;
+}
+.main-nav-link-active a {
+  text-decoration: none;
+}
+
+.main-nav-link-active {
+  border-bottom: 2px solid #6837ef;
+  padding: 16px 0;
+  display: inline-block;
+  width: fit-content;
+  margin-left: 40px;
+}
+@media (max-width: 500px) {
+  .main-nav-container {
+    overflow: scroll !important;
+    white-space: nowrap;
+    border: none;
+  }
+  .main-nav-link-active {
+    margin-left: 20px;
+  }
+  .main-nav-link {
+    /* padding-top: 0;
+    padding-bottom: 0; */
+    border-bottom: 1px solid #ecebf5;
+  }
+  ::-webkit-scrollbar {
+    width: 0px;
+  } /* remove scrollbar space /
+background: transparent; / optional: just make scrollbar invisible /
+}
+/ optional: show position indicator in red */
+}
